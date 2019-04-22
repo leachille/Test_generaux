@@ -1,5 +1,5 @@
 tmp=0
-if [ -a ./chemin ];
+if [ -f ./chemin ];
 then
 	{
 		echo "voulez vous changer le chemin d'acces ?"
@@ -25,16 +25,16 @@ clear
 
 #Fichier auteur
 #------------------------------------------------------------
-if [ -a $acces/auteur ]
+if [ -f $acces/auteur ]
 then
 	{
 		echo "Fichier auteur trouve"
 	}
-	if [ $(logname) != $(cat $acces/auteur) ]
+	if [ $(logall) != $(cat $acces/auteur) ]
 	then
 		{
 			echo "Fichier Auteur : KO!"
-			echo Nom dans export : $(logname)
+			echo Nom dans export : $(logall)
 			echo "Nom dans fichier auteur : $(cat $acces/auteur)"
 		}
 	else
@@ -55,8 +55,45 @@ fi
 
 #Makefile
 #------------------------------------------------------------
+all=$(cat $acces/Makefile | tr "\t" " " | grep "all " | cut -f3 -d " ")
 make fclean -C $acces >/dev/null 2> Make_error/make_fclean.txt
-make -C $acces >/dev/null 2> Make_error/make.txt
+make $all -C $acces >/dev/null 2> Make_error/make_all.txt
 make all -C $acces >/dev/null 2> Make_error/make_all.txt
 make clean -C $acces >/dev/null 2> Make_error/make_clean.txt
 make re -C $acces >/dev/null 2> Make_error/make_re.txt
+erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
+if [ $erreur != 0 ]
+then
+	{
+		echo "Make all : ERROR"
+		echo "nb erreurs : $erreur"
+	}
+else
+	{
+		echo "Make all : OK"
+	}
+fi
+erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
+if [ $erreur != 0 ]
+then
+	{
+		echo "Make all : ERROR"
+		echo "nb erreurs : $erreur"
+	}
+else
+	{
+		echo "Make all : OK"
+	}
+fi
+erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
+if [ $erreur != 0 ]
+then
+	{
+		echo "Make all : ERROR"
+		echo "nb erreurs : $erreur"
+	}
+else
+	{
+		echo "Make all : OK"
+	}
+fi
