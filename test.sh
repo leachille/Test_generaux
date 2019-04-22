@@ -1,5 +1,5 @@
 tmp=0
-if [ -a ./chemin ];
+if [ -f ./chemin ];
 then
 	{
 		echo "voulez vous changer le chemin d'acces ?"
@@ -25,7 +25,7 @@ clear
 
 #Fichier auteur
 #------------------------------------------------------------
-if [ -a $acces/auteur ]
+if [ -f $acces/auteur ]
 then
 	{
 		echo "Fichier auteur trouve"
@@ -55,8 +55,9 @@ fi
 
 #Makefile
 #------------------------------------------------------------
+name=$(cat $acces/Makefile | tr "\t" " " | grep "NAME " | cut -f3 -d " ")
 make fclean -C $acces >/dev/null 2> Make_error/make_fclean.txt
-make -C $acces >/dev/null 2> Make_error/make.txt
+make $name -C $acces >/dev/null 2> Make_error/make.txt
 make all -C $acces >/dev/null 2> Make_error/make_all.txt
 make clean -C $acces >/dev/null 2> Make_error/make_clean.txt
 make re -C $acces >/dev/null 2> Make_error/make_re.txt

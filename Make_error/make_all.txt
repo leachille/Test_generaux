@@ -1,1 +1,4 @@
-
+ft_strrchr.c:16:1: error: expected identifier or ‘(’ before ‘{’ token
+ {
+ ^
+make: *** [libft.a] Error 1
