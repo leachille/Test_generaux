@@ -1,3 +1,9 @@
+red="\033[31m"
+yel="\033[33m"
+green="\033[32m"
+vio="\033[35;4m"
+nul="\033[0m"
+
 tmp=0
 if [ -f ./chemin ];
 then
@@ -25,36 +31,59 @@ clear
 
 #Fichier auteur
 #------------------------------------------------------------
+echo "${vio}TEST FICHIER AUTEUR${nul}"
 if [ -f $acces/auteur ]
 then
 	{
 		echo "Fichier auteur trouve"
 	}
-	if [ $(logname) != $(cat $acces/auteur) ]
+	if [ $(logname) ! $(cat $acces/auteur) ]
 	then
 		{
-			echo "Fichier Auteur : KO!"
+			echo "Fichier Auteur : ${red}KO!${nul}"
 			echo Nom dans export : $(logname)
 			echo "Nom dans fichier auteur : $(cat $acces/auteur)"
 		}
 	else
 		{
-			echo "Fichier Auteur : OK"
+			echo "Fichier Auteur : ${green}OK${nul}"
 		}
 	fi
 else
 	{
-		echo "Fichier Auteur non trouve: KO!"
+		echo "Fichier Auteur non trouve: ${red}KO!${nul}"
 		echo "path : $acces/auteur"
 	}
 fi
 
 #Norminette
 #------------------------------------------------------------
-#norminette -R CheckForbiddenSourceHeader $acces
+echo "${vio}TEST NORMINETTE${nul}"
 
+norminette -R CheckForbiddenSourceHeader $acces | $(grep "Error\|Warning")
+error_norme=$(norminette -R CheckForbiddenSourceHeader $acces | $(grep "Error" | wc -l))
+warning_norme=$(norminette -R CheckForbiddenSourceHeader $acces | $(grep "Warning" | wc -l))
+
+if [ $error_norme ! 0 ]
+then
+	{
+		echo "Nb d'erreurs: ${red}$error_norme${nul}"
+	}
+else
+	{
+		echo "${green}Pas d'erreurs de normes${nul}"
+	}
+fi
+if [ $warning_norme ! 0 ]
+then
+	{
+		echo "Nb de warning: ${yel}$warning_norme${nul}"
+	}
+fi
 #Makefile
 #------------------------------------------------------------
+echo "${vio}TEST MAKEFILE${nul}"
+
 name=$(cat $acces/Makefile | tr "\t" " " | grep "NAME " | cut -f3 -d " ")
 make fclean -C $acces >/dev/null 2> Make_error/make_fclean.txt
 make $name -C $acces >/dev/null 2> Make_error/make.txt

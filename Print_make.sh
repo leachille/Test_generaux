@@ -2,8 +2,8 @@
 red="\033[31m"
 yel="\033[33m"
 green="\033[32m"
+vio="\033[35m"
 nul="\033[0m"
-
 
 erreur=$(cat test_make/error.txt)
 warning=$(cat test_make/warning.txt)
