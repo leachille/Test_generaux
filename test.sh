@@ -30,11 +30,11 @@ then
 	{
 		echo "Fichier auteur trouve"
 	}
-	if [ $(logall) != $(cat $acces/auteur) ]
+	if [ $(logname) != $(cat $acces/auteur) ]
 	then
 		{
 			echo "Fichier Auteur : KO!"
-			echo Nom dans export : $(logall)
+			echo Nom dans export : $(logname)
 			echo "Nom dans fichier auteur : $(cat $acces/auteur)"
 		}
 	else
@@ -55,45 +55,33 @@ fi
 
 #Makefile
 #------------------------------------------------------------
-all=$(cat $acces/Makefile | tr "\t" " " | grep "all " | cut -f3 -d " ")
+name=$(cat $acces/Makefile | tr "\t" " " | grep "NAME " | cut -f3 -d " ")
 make fclean -C $acces >/dev/null 2> Make_error/make_fclean.txt
-make $all -C $acces >/dev/null 2> Make_error/make_all.txt
+make $name -C $acces >/dev/null 2> Make_error/make.txt
 make all -C $acces >/dev/null 2> Make_error/make_all.txt
-make clean -C $acces >/dev/null 2> Make_error/make_clean.txt
 make re -C $acces >/dev/null 2> Make_error/make_re.txt
-erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
-if [ $erreur != 0 ]
-then
-	{
-		echo "Make all : ERROR"
-		echo "nb erreurs : $erreur"
-	}
-else
-	{
-		echo "Make all : OK"
-	}
-fi
-erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
-if [ $erreur != 0 ]
-then
-	{
-		echo "Make all : ERROR"
-		echo "nb erreurs : $erreur"
-	}
-else
-	{
-		echo "Make all : OK"
-	}
-fi
-erreur=$(grep 'Error\|Warning' Make_error/make_all.txt | wc -l)
-if [ $erreur != 0 ]
-then
-	{
-		echo "Make all : ERROR"
-		echo "nb erreurs : $erreur"
-	}
-else
-	{
-		echo "Make all : OK"
-	}
-fi
+make clean -C $acces >/dev/null 2> Make_error/make_clean.txt
+grep -w 'error' Make_error/make.txt | wc -l > test_make/error.txt
+grep -w 'warning' Make_error/make.txt | wc -l > test_make/warning.txt
+echo "NAME" > test_make/regle.txt
+sh print_make.sh
+
+grep -w 'error' Make_error/make_all.txt | wc -l > test_make/error.txt
+grep -w 'warning' Make_error/make_all.txt | wc -l > test_make/warning.txt
+echo "all" > test_make/regle.txt
+sh print_make.sh
+
+grep -w 'error' Make_error/make_clean.txt | wc -l > test_make/error.txt
+grep -w 'warning' Make_error/make_clean.txt | wc -l > test_make/warning.txt
+echo "clean" > test_make/regle.txt
+sh print_make.sh
+
+grep -w 'error' Make_error/make_fclean.txt | wc -l > test_make/error.txt
+grep -w 'warning' Make_error/make_fclean.txt | wc -l > test_make/warning.txt
+echo "fclean" > test_make/regle.txt
+sh print_make.sh
+
+grep -w 'error' Make_error/make_re.txt | wc -l > test_make/error.txt
+grep -w 'warning' Make_error/make_re.txt | wc -l > test_make/warning.txt
+echo "re" > test_make/regle.txt
+sh print_make.sh
