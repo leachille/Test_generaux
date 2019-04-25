@@ -1,9 +1,5 @@
 #couleur
-red="\033[31m"
-yel="\033[33m"
-green="\033[32m"
-vio="\033[35m"
-nul="\033[0m"
+source color.sh
 
 erreur=$(cat test_make/error.txt)
 warning=$(cat test_make/warning.txt)
@@ -29,11 +25,13 @@ then
 elif [ $warning != 0 ]
 then
   {
-    echo "Make $regle : ${yel}OK${nul}"
+    echo "Make $regle :"
+	echo "${up}				${yel}OK${nul}"
     echo "Warning : $warning"
   }
 else
   {
-    echo "Make $regle : ${green}OK${nul}"
+    echo "Make $regle :"
+	echo "${up}				${green}OK${nul}"
   }
 fi

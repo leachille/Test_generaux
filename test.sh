@@ -1,9 +1,4 @@
-red="\033[31m"
-yel="\033[33m"
-green="\033[32m"
-vio_="\033[35;4m"
-blu="\033[36m"
-nul="\033[0m"
+source color.sh
 
 tmp=0
 if [ -f ./chemin ];
@@ -92,42 +87,13 @@ grep -w 'warning' Make_error/make_re.txt | wc -l > test_make/warning.txt
 echo "re" > test_make/regle.txt
 sh print_make.sh
 
-echo "${blu}Test Fichier Manquant dans le Makefile${nul}"
+#Norminette
+#------------------------------------------------------------
+echo "${vio_}TEST FILE CHECKER${nul}"
 
-find $acces -name "*.c" | rev | cut -f1 -d "/" | rev | cut -f1 -d "." > lesSRC/fichier_c
-cat $acces/Makefile | grep -e "ft_*c*" | grep -v "ft_.(" | grep -v "NAME" | cut -f1 -d '.' | rev | tr "\t" " " |cut -f1 -d " " | rev > lesSRC/Fich_c_dansMakefile
+find $acces -name "*.c" | rev | cut -f1 -d "/" | rev | cut -f1 -d "." > fichier_c.txt
 
-nb=$(wc -l lesSRC/fichier_c | cut -f1 -d "f" | rev | cut -f2 -d " " | rev)
-nberror=0
-
-while true; do
-	nom_c=$(sed -n "${nb} p" lesSRC/fichier_c)
-	if [ $(grep "${nom_c}" lesSRC/Fich_c_dansMakefile | wc -l | bc) = 0 ]
-	then
-		{
-			echo "${yel}${nom_c} ${red}n'est pas present dans le Makefile${nul}"
-			((nberror++))
-		}
-	fi
-	if [ $nb = 1 ]
-	then
-		{
-			if [ $nberror != 0 ]
-			then
-				{
-					echo "Nombre fichier manquant : ${red}$nberror${nul}"
-				}
-			else
-				{
-					echo "${green}Aucun fichier manquant${nul}"
-				}
-			fi
-			break
-		}
-	fi
-	((nb--))
-done
-
+sh file_checker.sh $acces
 #Norminette
 #------------------------------------------------------------
 echo "${vio_}TEST NORMINETTE${nul}"

@@ -7,68 +7,61 @@ Warning: Not a valid file
 Norme: /Users/lachille/cursus_general/libft/ft_atoi.c
 Norme: /Users/lachille/cursus_general/libft/ft_isalnum.c
 Norme: /Users/lachille/cursus_general/libft/ft_isalpha.c
-Norme: /Users/lachille/cursus_general/libft/ft_isascii.c
 Norme: /Users/lachille/cursus_general/libft/ft_bzero.c
-Norme: /Users/lachille/cursus_general/libft/ft_displayfile.c
+Norme: /Users/lachille/cursus_general/libft/ft_isascii.c
 Norme: /Users/lachille/cursus_general/libft/ft_isdigit.c
-Norme: /Users/lachille/cursus_general/libft/ft_isprint.c
+Norme: /Users/lachille/cursus_general/libft/ft_displayfile.c
 Norme: /Users/lachille/cursus_general/libft/ft_lstadd.c
 Norme: /Users/lachille/cursus_general/libft/ft_lstdel.c
+Norme: /Users/lachille/cursus_general/libft/ft_isprint.c
 Norme: /Users/lachille/cursus_general/libft/ft_lstdelone.c
 Norme: /Users/lachille/cursus_general/libft/ft_lstiter.c
-Norme: /Users/lachille/cursus_general/libft/ft_lstmap.c
 Norme: /Users/lachille/cursus_general/libft/ft_memalloc.c
 Norme: /Users/lachille/cursus_general/libft/ft_lstnew.c
+Norme: /Users/lachille/cursus_general/libft/ft_lstmap.c
 Norme: /Users/lachille/cursus_general/libft/ft_memchr.c
 Norme: /Users/lachille/cursus_general/libft/ft_memcmp.c
-Norme: /Users/lachille/cursus_general/libft/ft_memcpy.c
 Norme: /Users/lachille/cursus_general/libft/ft_memdel.c
+Norme: /Users/lachille/cursus_general/libft/ft_memcpy.c
 Norme: /Users/lachille/cursus_general/libft/ft_memmove.c
-Norme: /Users/lachille/cursus_general/libft/ft_memset.c
 Norme: /Users/lachille/cursus_general/libft/ft_putchar.c
-Norme: /Users/lachille/cursus_general/libft/ft_itoa.c
+Norme: /Users/lachille/cursus_general/libft/ft_memset.c
 Norme: /Users/lachille/cursus_general/libft/ft_putendl.c
 Norme: /Users/lachille/cursus_general/libft/ft_putendl_fd.c
-Norme: /Users/lachille/cursus_general/libft/ft_memccpy.c
 Norme: /Users/lachille/cursus_general/libft/ft_putnbr.c
-Norme: /Users/lachille/cursus_general/libft/ft_putchar_fd.c
 Norme: /Users/lachille/cursus_general/libft/ft_putnbr_fd.c
-Norme: /Users/lachille/cursus_general/libft/ft_putstr_fd.c
 Norme: /Users/lachille/cursus_general/libft/ft_putstr.c
-Norme: /Users/lachille/cursus_general/libft/ft_strchr.c
-Norme: /Users/lachille/cursus_general/libft/ft_strclr.c
+Norme: /Users/lachille/cursus_general/libft/ft_itoa.c
+Norme: /Users/lachille/cursus_general/libft/ft_putstr_fd.c
+Norme: /Users/lachille/cursus_general/libft/ft_memccpy.c
+Norme: /Users/lachille/cursus_general/libft/ft_putchar_fd.c
 Norme: /Users/lachille/cursus_general/libft/ft_strcat.c
+Norme: /Users/lachille/cursus_general/libft/ft_strchr.c
+Norme: /Users/lachille/cursus_general/libft/ft_size_digit.c
 Norme: /Users/lachille/cursus_general/libft/ft_strcmp.c
 Norme: /Users/lachille/cursus_general/libft/ft_strdel.c
+Norme: /Users/lachille/cursus_general/libft/ft_strclr.c
 Norme: /Users/lachille/cursus_general/libft/ft_strcpy.c
 Norme: /Users/lachille/cursus_general/libft/ft_strequ.c
+Norme: /Users/lachille/cursus_general/libft/ft_striteri.c
 Norme: /Users/lachille/cursus_general/libft/ft_strdup.c
 Norme: /Users/lachille/cursus_general/libft/ft_striter.c
-Norme: /Users/lachille/cursus_general/libft/ft_striteri.c
 Norme: /Users/lachille/cursus_general/libft/ft_strlen.c
 Norme: /Users/lachille/cursus_general/libft/ft_strmap.c
-Norme: /Users/lachille/cursus_general/libft/ft_strmapi.c
 Norme: /Users/lachille/cursus_general/libft/ft_strlcat.c
-Norme: /Users/lachille/cursus_general/libft/ft_strncpy.c
-Norme: /Users/lachille/cursus_general/libft/ft_strncmp.c
-Norme: /Users/lachille/cursus_general/libft/ft_strncat.c
 Norme: /Users/lachille/cursus_general/libft/ft_strjoin.c
+Norme: /Users/lachille/cursus_general/libft/ft_strmapi.c
+Norme: /Users/lachille/cursus_general/libft/ft_strncat.c
+Norme: /Users/lachille/cursus_general/libft/ft_strncmp.c
+Norme: /Users/lachille/cursus_general/libft/ft_strncpy.c
+Norme: /Users/lachille/cursus_general/libft/ft_strnequ.c
 Norme: /Users/lachille/cursus_general/libft/ft_strnew.c
 Norme: /Users/lachille/cursus_general/libft/ft_strrchr.c
-Norme: /Users/lachille/cursus_general/libft/ft_strnequ.c
 Norme: /Users/lachille/cursus_general/libft/ft_strnstr.c
 Norme: /Users/lachille/cursus_general/libft/ft_strstr.c
 Norme: /Users/lachille/cursus_general/libft/ft_strsub.c
-Norme: /Users/lachille/cursus_general/libft/ft_strtrim.c
 Norme: /Users/lachille/cursus_general/libft/ft_tolower.c
 Norme: /Users/lachille/cursus_general/libft/ft_toupper.c
-Error (line 13): multiple empty lines
-Error (line 14): preprocessor block must be followed by one empty line
-Error (line 15): Space before function name
-Error (line 15): bad spacing before ft_toupper
-Error (line 17): Empty line
-Error (line 18): multiple empty lines
-Error (line 18): Empty line
-Error (line 21, col 1): missing space after return
+Norme: /Users/lachille/cursus_general/libft/ft_strtrim.c
 Norme: /Users/lachille/cursus_general/libft/ft_strsplit.c
 Norme: /Users/lachille/cursus_general/libft/libft.h
